@@ -1,0 +1,826 @@
+/* ==============================
+   Base / Reset
+   ============================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #333;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ==============================
+   Header
+   ============================== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 2px solid #7B5EA7;
+  transition: box-shadow 0.3s;
+}
+
+.header.is-scrolled {
+  box-shadow: 0 2px 16px rgba(123, 94, 167, 0.15);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+  height: 7.2rem;
+}
+
+.header__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #7B5EA7;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.6rem;
+  padding: 0.8rem 2.4rem;
+  border-radius: 0.4rem;
+  letter-spacing: 0.1em;
+}
+
+.header__nav {
+  margin-left: 3.2rem;
+}
+
+.header__nav-list {
+  display: flex;
+  gap: 3.2rem;
+}
+
+.header__nav-link {
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+  position: relative;
+  padding-bottom: 0.4rem;
+}
+
+.header__nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #7B5EA7;
+  transition: width 0.3s, left 0.3s;
+}
+
+.header__nav-link:hover {
+  color: #7B5EA7;
+}
+
+.header__nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.header__actions {
+  display: flex;
+  gap: 1.2rem;
+  margin-left: auto;
+}
+
+/* --- Hamburger Button --- */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.8rem;
+  margin-left: auto;
+  z-index: 200;
+}
+
+.hamburger__line {
+  display: block;
+  width: 2.4rem;
+  height: 2px;
+  background: #333;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Hamburger → X animation */
+.hamburger.is-active .hamburger__line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.is-active .hamburger__line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-active .hamburger__line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- Mobile Menu --- */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.mobile-menu.is-open {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.mobile-menu__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.mobile-menu.is-open .mobile-menu__overlay {
+  opacity: 1;
+}
+
+.mobile-menu__drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(32rem, 85vw);
+  height: 100%;
+  background: #fff;
+  padding: 8rem 2.4rem 3.2rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.mobile-menu.is-open .mobile-menu__drawer {
+  transform: translateX(0);
+}
+
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobile-menu__link {
+  display: block;
+  padding: 1.6rem 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #eee;
+  transition: color 0.2s;
+}
+
+.mobile-menu__link:hover {
+  color: #7B5EA7;
+}
+
+.mobile-menu__cta {
+  margin-top: 3.2rem;
+}
+
+.btn--block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* ==============================
+   Buttons
+   ============================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 1rem 2.4rem;
+  border-radius: 10rem;
+  letter-spacing: 0.05em;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s, border-color 0.3s;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background: #7B5EA7;
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: #6a4f94;
+  box-shadow: 0 4px 20px rgba(123, 94, 167, 0.45);
+}
+
+.btn--outline {
+  background: #fff;
+  color: #7B5EA7;
+  border: 2px solid #7B5EA7;
+}
+
+.btn--outline:hover {
+  background: #7B5EA7;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(123, 94, 167, 0.3);
+}
+
+/* ==============================
+   Hero Section
+   ============================== */
+.hero {
+  overflow: hidden;
+}
+
+/* --- Photo Strips --- */
+.hero__photos {
+  display: flex;
+  width: 100%;
+}
+
+.hero__photo {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero__photos--top .hero__photo {
+  aspect-ratio: 220 / 280;
+}
+
+.hero__photos--bottom .hero__photo {
+  aspect-ratio: 260 / 320;
+}
+
+.hero__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(123, 94, 167, 0.4) 100%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 1;
+}
+
+.hero__photo:hover::after {
+  opacity: 1;
+}
+
+.hero__photo img {
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.hero__photo:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+/* --- Catchcopy --- */
+.hero__copy {
+  text-align: center;
+  padding: 4.8rem 2.4rem 3.2rem;
+  position: relative;
+}
+
+.hero__subtitle {
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  color: #333;
+  margin-bottom: 1.6rem;
+}
+
+.hero__title {
+  font-size: clamp(3.2rem, 5.5vw, 7.2rem);
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.hero__title-purple {
+  color: #7B5EA7;
+  font-size: 1.3em;
+  position: relative;
+}
+
+.hero__title-black {
+  color: #333;
+}
+
+.hero__title-green {
+  color: #4CAF50;
+  font-size: 1.3em;
+}
+
+/* Decorative wave */
+.hero__wave {
+  display: block;
+  width: min(48rem, 60%);
+  height: auto;
+  margin: -1.2rem auto 0;
+}
+
+/* ==============================
+   Section Heading (shared)
+   ============================== */
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #7B5EA7;
+  margin-bottom: 4.8rem;
+}
+
+.section-heading__title {
+  font-size: clamp(3.2rem, 4vw, 4.8rem);
+  font-weight: 900;
+  color: #7B5EA7;
+  letter-spacing: 0.05em;
+}
+
+.section-heading__en {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #7B5EA7;
+  letter-spacing: 0.05em;
+}
+
+.section-heading--light .section-heading__title,
+.section-heading--light .section-heading__en {
+  color: #fff;
+}
+
+.section-heading--light {
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ==============================
+   Company Section (会社概要)
+   ============================== */
+.company {
+  background: #fff;
+  padding: 8rem 0;
+}
+
+.company__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+}
+
+.company__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 4rem;
+}
+
+.company__table tr {
+  transition: background 0.3s;
+}
+
+.company__table tr:not(.company__table-spacer):hover {
+  background: #f8f5fc;
+}
+
+.company__table th,
+.company__table td {
+  padding: 1.2rem 0.8rem;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  vertical-align: top;
+  text-align: left;
+}
+
+.company__table th {
+  width: 16rem;
+  color: #7B5EA7;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  padding-right: 4rem;
+}
+
+.company__table td {
+  color: #333;
+}
+
+.company__table-spacer td {
+  padding: 2rem 0;
+}
+
+.company__business-list {
+  list-style: none;
+}
+
+.company__business-list li {
+  padding: 0.2rem 0;
+}
+
+.company__cta {
+  text-align: center;
+  margin-top: 3.2rem;
+}
+
+.btn--lg {
+  padding: 1.4rem 4rem;
+  font-size: 1.6rem;
+}
+
+.btn--xl {
+  padding: 1.8rem 5.6rem;
+  font-size: 1.8rem;
+}
+
+/* ==============================
+   Services Section (事業内容)
+   ============================== */
+.services {
+  background: #1a1025;
+  padding: 8rem 0;
+}
+
+.services__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.4rem;
+}
+
+.services__card {
+  position: relative;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  background: #2a1f35;
+  border: 1px solid rgba(123, 94, 167, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.services__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(123, 94, 167, 0.4), 0 0 0 1px rgba(123, 94, 167, 0.3);
+  border-color: rgba(123, 94, 167, 0.6);
+}
+
+.services__card--wide {
+  grid-column: 1 / -1;
+  max-height: 36rem;
+}
+
+.services__card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.services__card--wide .services__card-img {
+  aspect-ratio: 32 / 10;
+}
+
+.services__card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: brightness(0.85);
+}
+
+.services__card:hover .services__card-img img {
+  transform: scale(1.08);
+  filter: brightness(1);
+}
+
+.services__card-img--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2a1f35, #3d2d52);
+}
+
+.services__card-img--placeholder svg {
+  width: 60%;
+  height: 60%;
+}
+
+.services__card-label {
+  padding: 1.6rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.05em;
+  background: rgba(26, 16, 37, 0.85);
+  transition: padding-left 0.3s, background 0.3s;
+}
+
+.services__card:hover .services__card-label {
+  padding-left: 2.8rem;
+  background: rgba(123, 94, 167, 0.35);
+}
+
+/* ==============================
+   Contact Section (お問い合わせ)
+   ============================== */
+.contact {
+  background: #f8f6fa;
+  padding: 8rem 0;
+}
+
+.contact__inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+  text-align: center;
+}
+
+.contact__text {
+  font-size: 1.6rem;
+  line-height: 2;
+  color: #555;
+  margin-bottom: 4rem;
+}
+
+.contact__cta {
+  text-align: center;
+}
+
+/* ==============================
+   Footer
+   ============================== */
+.footer {
+  background: #1a1025;
+  color: #fff;
+  padding-top: 6rem;
+}
+
+.footer__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4rem;
+  padding-bottom: 4rem;
+}
+
+.footer__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #7B5EA7;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.4rem;
+  padding: 0.6rem 1.8rem;
+  border-radius: 0.4rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.6rem;
+}
+
+.footer__company-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.footer__address {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.footer__nav-link {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s, padding-left 0.3s;
+}
+
+.footer__nav-link:hover {
+  color: #fff;
+  padding-left: 0.4rem;
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  padding: 2rem 2.4rem;
+}
+
+.footer__copyright {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ==============================
+   Scroll Animations
+   ============================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(3rem);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-3rem);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(3rem);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.stagger-children .fade-in:nth-child(1) { transition-delay: 0s; }
+.stagger-children .fade-in:nth-child(2) { transition-delay: 0.1s; }
+.stagger-children .fade-in:nth-child(3) { transition-delay: 0.2s; }
+.stagger-children .fade-in:nth-child(4) { transition-delay: 0.3s; }
+.stagger-children .fade-in:nth-child(5) { transition-delay: 0.4s; }
+.stagger-children .fade-in:nth-child(6) { transition-delay: 0.5s; }
+.stagger-children .fade-in:nth-child(7) { transition-delay: 0.6s; }
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .fade-in-left,
+  .fade-in-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==============================
+   Responsive
+   ============================== */
+@media (max-width: 768px) {
+  html {
+    font-size: 56.25%; /* 1rem = 9px */
+  }
+
+  .header__inner {
+    height: 6rem;
+    padding: 0 1.6rem;
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  .header__actions {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hero__subtitle {
+    font-size: 1.4rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hero__title {
+    white-space: normal;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+  }
+
+  .hero__copy {
+    padding: 3.2rem 1.6rem 2.4rem;
+  }
+
+  .hero__photos--top .hero__photo:nth-child(n+5),
+  .hero__photos--bottom .hero__photo:nth-child(n+5) {
+    display: none;
+  }
+
+  /* Company */
+  .company {
+    padding: 6rem 0;
+  }
+
+  .company__table th {
+    width: 10rem;
+    padding-right: 2rem;
+    font-size: 1.4rem;
+  }
+
+  .company__table td {
+    font-size: 1.4rem;
+  }
+
+  .section-heading {
+    margin-bottom: 3.2rem;
+  }
+
+  /* Services */
+  .services {
+    padding: 6rem 0;
+  }
+
+  .services__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .services__card--wide {
+    grid-column: 1;
+  }
+
+  /* Contact */
+  .contact {
+    padding: 6rem 0;
+  }
+
+  .contact__text {
+    font-size: 1.4rem;
+  }
+
+  /* Footer */
+  .footer__inner {
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+
+  .footer__nav-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+  }
+}
