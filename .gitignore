@@ -1,0 +1,5 @@
+node_modules/
+design/psd-*.png
+design/full-page.png
+.claude/
+*.zip
