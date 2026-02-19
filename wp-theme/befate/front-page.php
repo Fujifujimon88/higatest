@@ -40,6 +40,65 @@ get_header();
     </div>
   </section>
 
+  <!-- ========== Services Section (事業内容) ========== -->
+  <section id="services" class="services">
+    <div class="services__inner">
+      <div class="section-heading section-heading--light fade-in">
+        <h2 class="section-heading__title">事業内容</h2>
+        <span class="section-heading__en">Services</span>
+      </div>
+
+      <div class="services__grid stagger-children">
+        <div class="services__card services__card--wide fade-in">
+          <div class="services__card-img">
+            <img src="<?php echo befate_image('person-07.jpg'); ?>" alt="営業支援・営業代行事業">
+          </div>
+          <p class="services__card-label">営業支援・営業代行事業</p>
+        </div>
+        <div class="services__card fade-in">
+          <div class="services__card-img">
+            <img src="<?php echo befate_image('person-08.jpg'); ?>" alt="各種コンサルティング事業">
+          </div>
+          <p class="services__card-label">各種コンサルティング事業</p>
+        </div>
+        <div class="services__card fade-in">
+          <div class="services__card-img">
+            <img src="<?php echo befate_image('person-09.jpg'); ?>" alt="業務委託事業">
+          </div>
+          <p class="services__card-label">業務委託事業</p>
+        </div>
+        <div class="services__card fade-in">
+          <div class="services__card-img">
+            <img src="<?php echo befate_image('person-10.jpg'); ?>" alt="広告代理店事業">
+          </div>
+          <p class="services__card-label">広告代理店事業</p>
+        </div>
+        <div class="services__card fade-in">
+          <div class="services__card-img">
+            <img src="<?php echo befate_image('person-11.jpg'); ?>" alt="WEB制作事業">
+          </div>
+          <p class="services__card-label">WEB制作事業</p>
+        </div>
+        <div class="services__card fade-in">
+          <div class="services__card-img services__card-img--placeholder">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 20C45 20 40 25 40 30V45C40 50 45 55 50 55C55 55 60 50 60 45V30C60 25 55 20 50 20Z" fill="rgba(255,255,255,0.2)"/>
+              <path d="M30 60C25 65 25 70 30 75L40 80H60L70 75C75 70 75 65 70 60L60 55H40L30 60Z" fill="rgba(255,255,255,0.15)"/>
+              <text x="50" y="95" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="8">CLOUD</text>
+            </svg>
+          </div>
+          <p class="services__card-label">クラウドサービス事業</p>
+        </div>
+        <div class="services__card fade-in">
+          <div class="services__card-img">
+            <img src="<?php echo befate_image('person-01.jpg'); ?>" alt="美容関連店舗の運営">
+          </div>
+          <p class="services__card-label">美容関連店舗の運営</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== Company Section (会社概要) ========== -->
   <section id="company" class="company">
     <div class="company__inner">
@@ -108,65 +167,6 @@ get_header();
 
       <div class="company__cta fade-in">
         <a href="#" class="btn btn--primary btn--lg">View More →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== Services Section (事業内容) ========== -->
-  <section id="services" class="services">
-    <div class="services__inner">
-      <div class="section-heading section-heading--light fade-in">
-        <h2 class="section-heading__title">事業内容</h2>
-        <span class="section-heading__en">Services</span>
-      </div>
-
-      <div class="services__grid stagger-children">
-        <div class="services__card services__card--wide fade-in">
-          <div class="services__card-img">
-            <img src="<?php echo befate_image('person-07.jpg'); ?>" alt="営業支援・営業代行事業">
-          </div>
-          <p class="services__card-label">営業支援・営業代行事業</p>
-        </div>
-        <div class="services__card fade-in">
-          <div class="services__card-img">
-            <img src="<?php echo befate_image('person-08.jpg'); ?>" alt="各種コンサルティング事業">
-          </div>
-          <p class="services__card-label">各種コンサルティング事業</p>
-        </div>
-        <div class="services__card fade-in">
-          <div class="services__card-img">
-            <img src="<?php echo befate_image('person-09.jpg'); ?>" alt="業務委託事業">
-          </div>
-          <p class="services__card-label">業務委託事業</p>
-        </div>
-        <div class="services__card fade-in">
-          <div class="services__card-img">
-            <img src="<?php echo befate_image('person-10.jpg'); ?>" alt="広告代理店事業">
-          </div>
-          <p class="services__card-label">広告代理店事業</p>
-        </div>
-        <div class="services__card fade-in">
-          <div class="services__card-img">
-            <img src="<?php echo befate_image('person-11.jpg'); ?>" alt="WEB制作事業">
-          </div>
-          <p class="services__card-label">WEB制作事業</p>
-        </div>
-        <div class="services__card fade-in">
-          <div class="services__card-img services__card-img--placeholder">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M50 20C45 20 40 25 40 30V45C40 50 45 55 50 55C55 55 60 50 60 45V30C60 25 55 20 50 20Z" fill="rgba(255,255,255,0.2)"/>
-              <path d="M30 60C25 65 25 70 30 75L40 80H60L70 75C75 70 75 65 70 60L60 55H40L30 60Z" fill="rgba(255,255,255,0.15)"/>
-              <text x="50" y="95" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-size="8">CLOUD</text>
-            </svg>
-          </div>
-          <p class="services__card-label">クラウドサービス事業</p>
-        </div>
-        <div class="services__card fade-in">
-          <div class="services__card-img">
-            <img src="<?php echo befate_image('person-01.jpg'); ?>" alt="美容関連店舗の運営">
-          </div>
-          <p class="services__card-label">美容関連店舗の運営</p>
-        </div>
       </div>
     </div>
   </section>

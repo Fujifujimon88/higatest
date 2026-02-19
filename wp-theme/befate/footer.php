@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand">
-        <span class="footer__logo"><?php bloginfo('name'); ?></span>
+        <img src="<?php echo befate_image('logo-white.png'); ?>" alt="<?php bloginfo('name'); ?>" class="footer__logo-img">
         <p class="footer__company-name">株式会社ビフェイト</p>
         <p class="footer__address">石川県野々市市扇が丘23番31-3号</p>
       </div>

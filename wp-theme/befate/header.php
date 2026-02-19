@@ -12,7 +12,7 @@
   <header class="header">
     <div class="header__inner">
       <a href="<?php echo esc_url(home_url('/')); ?>" class="header__logo">
-        <?php bloginfo('name'); ?>
+        <img src="<?php echo befate_image('logo.png'); ?>" alt="<?php bloginfo('name'); ?>" class="header__logo-img">
       </a>
       <nav class="header__nav">
         <?php
